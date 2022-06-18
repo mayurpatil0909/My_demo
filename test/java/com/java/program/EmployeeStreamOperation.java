@@ -83,6 +83,10 @@ public class EmployeeStreamOperation {
 		// empList.stream().map(Employee:: getEmpName).distinct().collect(Collectors.toList()).forEach(System.out::println);;
 
 		// Object sorted by with its multiple fields simultaneously.
+		
+		empList.stream().sorted(Comparator.comparing(Employee::getEmpLastName).thenComparing(Employee::getEmpName))
+		.collect(Collectors.toList());
+		
 		List<Employee> empSortedList = empList.stream()
 				.sorted(Comparator.comparing(Employee::getEmpId).thenComparing(Employee::getEmpName))
 				.collect(Collectors.toList());

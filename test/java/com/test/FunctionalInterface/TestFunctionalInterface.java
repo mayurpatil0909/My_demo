@@ -12,12 +12,12 @@ import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
+import java.util.stream.Stream;
 
-import javax.xml.bind.ValidationException;
 
 public class TestFunctionalInterface {
 
-	public static void main(String[] args) throws ValidationException, ParseException {
+	public static void main(String[] args) throws ParseException {
 
 		// predicate (boolean-valued function) of one argument
 		Predicate<String> chkLength = s -> s.length() > 5;
@@ -54,6 +54,13 @@ public class TestFunctionalInterface {
 		Supplier<Date> currentTime = () -> new Date();
 		System.out.println("Current Time ::"  + currentTime.get());
 
+		List<Integer> intListA = Arrays.asList(1, 2, 4, 5, 1, 7, 5, 1, 9, 10);
+		List<Integer> intListB = Arrays.asList(11, 82, 94, 45, 10, 47, 55, 16, 99, 110);
+		
+		List<Integer> newlist = new ArrayList<>();
+		Stream.of(intListA,intListB).forEach(newlist :: addAll);
+
+		System.out.println(" newlist.size() :: " + newlist.size());
 		try {
 			String str = "-142.15";
 			// Integer.parseInt(str); // 15,350 /-
@@ -84,7 +91,7 @@ public class TestFunctionalInterface {
 			 System.out.println("phone list join :: " + phones);
 			 
 		} catch(NumberFormatException e) {
-			throw new ValidationException("This is not number");
+			// throw new ValidationException("This is not number");
 		}
 
 	}

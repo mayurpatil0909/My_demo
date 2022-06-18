@@ -1,5 +1,6 @@
 package com.test;
 
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -19,17 +20,24 @@ public class TestMapOrder {
 		map.put("d", 3);
 		map.put("z", 0);
 		map.put("C", 2);
-		// rev order of key;
-		map.entrySet() ;
+
+		Map<String, Integer> treemap = new HashMap <>(map);
 
 		List<Entry<String, Integer>> list = new LinkedList<Map.Entry<String,Integer>>(map.entrySet());
-		
 		Collections.sort(list, (a, b) -> b.getKey().compareTo(a.getKey()));
-		
 		System.out.println(" list :: " + list);  /// z,E,d,B,C,A
 
-		List<Entry<String, Integer>> list1 = map.entrySet().stream().sorted(). collect(Collectors.toList());
-		System.out.println("list1 :: " + list1);
+		
+		map.entrySet().stream().sorted(Map.Entry.<String, Integer>comparingByKey().reversed())
+		.forEach(System.out::print);
+		
+		List<Entry<String, Integer>> list1 = map.entrySet().stream()
+				.sorted(Map.Entry.<String, Integer>comparingByKey().reversed()).collect(Collectors.toList());		
+		
+		List<Integer> intList = Arrays.asList(1, 2, 4, 5, 1, 7, 5, 1, 9, 10);
+		intList. stream().distinct().collect(Collectors.toList());
+		intList.stream().collect(Collectors.toSet());
+		
 
 /*
 Employee

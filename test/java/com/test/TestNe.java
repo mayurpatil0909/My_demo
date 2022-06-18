@@ -35,11 +35,12 @@ public class TestNe {
 		[ 0, 2, 1, 1,7,7,7,5,8,8,8]
 		*/
 
-		list.stream().filter(x -> x. startsWith("a")  ).collect(Collectors.toList());
+		list.stream().filter(x -> x. startsWith("a")  ) .collect(Collectors.toList());
 		
-		list.stream().collect(Collectors.toSet());
+		list.stream().collect(Collectors. toSet());
 		list.stream(). distinct().collect(Collectors.toList()) ;
 
+		// @Override
 		
 	}
 

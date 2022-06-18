@@ -1,7 +1,9 @@
 package com.citi.test;
 
-public class CitiTest {
-	public int Test(int[] A) {
+public class EquilibriumIndex {
+
+	public int findEquilibriumIndex(int[] A) {
+
 		// length ==4
 		int count = 0;
 		for (int i = 0; i < A.length; i++) {
@@ -28,10 +30,9 @@ public class CitiTest {
 
 	public static void main(String[] args) {
 
-		int[] A = new int[] { 3, 1, 3, 0 };
-		CitiTest citiTest = new CitiTest();
-		citiTest.Test(A);
-
+		int[] array = new int[] { 3, 1, 3, 0 };
+		EquilibriumIndex citiTest = new EquilibriumIndex();
+		citiTest.findEquilibriumIndex(array);
 	}
 
 }

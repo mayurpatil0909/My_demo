@@ -2,14 +2,10 @@ package com.test;
 
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import java.util.function.Function;
-import java.util.stream.Collector;
-import java.util.stream.Collectors;
 
 interface AA {
 	public String m1(String s);
@@ -42,11 +38,13 @@ public class TestFunInterface {
 			map.put(s, count+1);
 		}
 
+		List<Integer> intList = Arrays.asList(1, 2, 5, 2, 9, 8,9);
+		
 		List<Map.Entry<String, Integer>> list = new LinkedList<Map.Entry<String,Integer>>(map.entrySet());
 		Collections.sort(list, (a, b) -> b.getValue().compareTo(a.getValue())); ;
 		System.out.println(" list :: " + list );
 
-		arrList.stream().collect(Collectors.groupingBy(Function.identity(), Collectors.counting())).entrySet().stream().sorted(Comparator.);
+//		arrList.stream().collect(Collectors.groupingBy(Function.identity(), Collectors.counting())).entrySet().stream().sorted(Comparator.);
 		
 	}
 

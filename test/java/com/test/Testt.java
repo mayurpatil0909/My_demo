@@ -54,6 +54,16 @@ class Employyee implements Comparator<Employyee> {
 public class Testt {
 
 	public static void main(String[] args) {
+		
+		for(int i=3; i>=1; i--){
+		       for(int j=i; j<=1; j++){
+		         System.out.print(j);
+		       }
+		        System.out.println();
+		    } 
+		
+	
+
 
 		Employyee e1 = new Employyee(1, "Amar", "Pune");
 		Employyee e2 = new Employyee(2, "Amit", "Mumbai");
@@ -71,6 +81,8 @@ public class Testt {
 
 		Map<String, Long> map = list.stream()
 				.collect(Collectors.groupingBy(Employyee::getLocation, Collectors.counting()));
+
+		System.out.println("map :: " + map);
 
 		List<Map.Entry<String, Long>> sortedMap = new LinkedList<Map.Entry<String, Long>>(map.entrySet());
 		Collections.sort(sortedMap, (a, b) -> a.getValue().compareTo(b.getValue()));
